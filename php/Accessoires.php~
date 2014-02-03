@@ -1,0 +1,27 @@
+<?php
+
+   class Accessoire extends ROOT_Controller{
+
+   	 function __construct()
+   	 {  
+      	        parent::__construct();
+   	 }
+
+	 function  creer($nom, $description)
+         {
+		$requete = "INSERT INTO gp_accessoire( `nom`, `description`) VALUES ('.$nom.','.$description.')";
+	 	$resultat = $bdd->query($requete) or die(print_r($bdd->errorInfo()));
+   	 }
+
+
+   	 function  supprimer(){
+
+   	 }
+   	 function  lire(){
+
+   	 }
+  	 function  modifier(){
+
+   	 }
+   }
+?>

@@ -1,0 +1,46 @@
+/**
+ * permet d'ajouter des données dans la base de données
+ * @param url 
+ * @param data les données dans le bons format
+ * @param function_success ou null 
+ * @param function_error ou null
+ */
+
+function setData(url, data, function_success, function_error) {
+	if(function_success == null){
+		function_success=defaultAjaxSuccess
+	}
+	if(function_error == null){
+		function_error=defaultAjaxError;
+	}
+	var datas = '';
+	$.ajax({
+		type: 'POST',
+		url: url,
+		data: data,
+		cache: false,
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		error: function_error,
+		success: function(dataJSON){	
+			dataJSON = JSON.parse(dataJSON);
+			datas = dataJSON;
+		}
+	});
+	console.table(datas);
+	return datas;
+}
+
+/**
+ * 
+ */
+function defaultAjaxError(jqXHR, textStatus, errorThrown){
+	alert(typeof errorThrown);
+	alert(jqXHR.responseText);
+	alert("Erreur : \n "+ errorThrown + ", jqXHR="+jqXHR.status );
+}
+
+function defaultAjaxSuccess(data){	
+	data = JSON.parse(data);
+	console.log('et de un');	
+	return data;
+}

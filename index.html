@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Backend Vinssou Programme</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <nav>
+            <ul class="buttons-bar">
+              <li><a href="#velo">Velo</a></li>
+              <li><a href="#event">&Eacute;vénements</a></li>
+              <li><a href="#accessoire">Accessoires</a></li>
+            </ul>
+        </nav>
+        <section class="main">
+            <form action="">
+              <div id="velo" class="block">
+                <h1>Vélo</h1>
+                <fieldset>
+                    <legend></legend>
+                    <dl>
+                      <dt>Déscription</dt>
+                      <dd>Accessoires</dd>
+                      <dt>Texte</dt>
+                      <dd>
+                        <ul>
+                          <li><input type="checkbox" name="model" id="model" /><label for="model">Model</label></li>
+                          <li><input type="checkbox" name="model2" id="model2" /><label for="model2">Model2</label></li>
+                          <li><input type="checkbox" name="model3" id="model3" /><label for="model3">Model3</label></li>
+                          <li><input type="checkbox" name="model4" id="model4" /><label for="model4">Model4</label></li>
+                          <li><button>Valider</button></li>
+                      </ul></dd>
+                    </dl>
+                  </fieldset>
+              </div>
+              <div id="event" class="block">
+                <h1>&Eacute;vénements</h1>
+                  <fieldset>
+                    <legend></legend>
+                  </fieldset>
+              </div>
+              <div id="accessoire" class="block">
+                <h1>Accessoires</h1>
+                <fieldset>
+                    <legend>Créer</legend>
+                    <dl>
+                      <dt><label for="create-accessoire" >Nom</label></dt>
+                      <dd><input type="text" name="create-accessoire" id="accessoireNom" /></dd>
+                      <dt><label for="desc-accessoire">Description</label></dt>
+                      <dd>
+                        <input type="text" name="add-accessoire" id="accessoireDesc" />
+                        <button type="button" id="ajouterAccessoire">Ajouter</button>
+                    </dd>
+                </dl>
+            </fieldset>
+            <fieldset>
+                <legend>Supprimer</legend>
+                    <dl>
+                      <dt><label for="delete-pieces">Piece</label></dt>
+                      <dd>
+                        <select name="delete-pieces" id="delete-pieces">
+                            
+                        </select>
+                        <button type="button" id="supprimerAccessoire">Valider</button>
+                    </dd>
+                    </dl>
+            </fieldset>
+            <fieldset>
+                <legend>Modifier</legend>
+                    <dl>
+                      <dt><label for="modify-pieces">Piece</label></dt>
+                        <dd id="mofidier">
+                         <select name="modify-pieces" id="modify-pieces"></select>
+                         <button type="button" id="chargerAccessoire">Charger</button>
+		        </dd>
+			<div id="champsModifier" class="hidden">
+			  <dt><label for="modifier-accessoire" >Nom</label></dt>
+			  <dd><input type="text" name="create-accessoire" id="accessoireNomModifier" /></dd>
+			  <dt><label for="desc-accessoire">Description</label></dt>
+			  <dd>
+                            <input type="text" name="add-accessoire" id="accessoireDescModifier" />
+                            <button type="button" id="modifierAccessoire">Modifier</button>
+			  </dd>
+			</div>
+			
+
+                    </dl>
+                  </fieldset>
+              </div>
+            </form>
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+	<script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>
