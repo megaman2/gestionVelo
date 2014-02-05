@@ -14,6 +14,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -34,20 +35,58 @@
               <div id="velo" class="block">
                 <h1>Vélo</h1>
                 <fieldset>
-                    <legend></legend>
+                    <legend>Créer</legend>
                     <dl>
-                      <dt>Déscription</dt>
-                      <dd>Accessoires</dd>
-                      <dt>Texte</dt>
+                      <dt><label for="creerVeloType">Type</label></dt>
+                      <dd><input type="text" name="creerVeloType" id="creerVeloType" /></dd>
+                      <dt><label for="creerVeloModel">Model</label></dt>
+                      <dd><input type="text" name="creerVeloModel" id="creerVeloModel" /></dd>
+                      <dt><label for="creerVeloDescription">Description</label></dt>
+                      <dd><input type="text" name="creerVeloDescription" id="creerVeloDescription" /></dd>
+                      <dt><label for="creerVeloDate">Date d'achat</label></dt>
                       <dd>
-                        <ul>
-                          <li><input type="checkbox" name="model" id="model" /><label for="model">Model</label></li>
-                          <li><input type="checkbox" name="model2" id="model2" /><label for="model2">Model2</label></li>
-                          <li><input type="checkbox" name="model3" id="model3" /><label for="model3">Model3</label></li>
-                          <li><input type="checkbox" name="model4" id="model4" /><label for="model4">Model4</label></li>
-                          <li><button>Valider</button></li>
-                      </ul></dd>
-                    </dl>
+                        <input type="text" name="creerVeloDate" id="creerVeloDate" />
+                        <button type="button" id="ajouterVelo">Ajouter</button>
+                    </dd>
+                  </fieldset>
+                  <fieldset>
+                    <legend>Supprimer</legend>
+                    <dl>
+                      <dt><label for="veloAsupprimer">Velo</label></dt>
+                      <dd>
+                       <select name="veloAsupprimer" id="veloAsupprimer"></select>
+                       <button type="button" id="supprimerVelo">Supprimer</button>
+		      </dd>
+                    </dd>
+                  </fieldset>
+                  <fieldset>
+                    <legend>Modifier</legend>
+                    <dl>
+                      <dt><label for="veloAmodifier">Velo</label></dt>
+                      <dd>
+                       <select name="veloAmodifier" id="veloAmodifier"></select>
+                       <button type="button" id="chargerVeloAmodifier">Charger</button>
+		      </dd>
+                   </dl>
+                   <dl id="champs-modifs" class="hidden">
+                      <dt><label for="modifierVeloType">Type</label></dt>
+                      <dd><input type="text" name="modifierVeloType" id="modifierVeloType" /></dd>
+                      <dt><label for="modifierVeloModel">Model</label></dt>
+                      <dd><input type="text" name="modifierVeloModel" id="modifierVeloModel" /></dd>
+                      <dt><label for="modifierVeloDescription">Description</label></dt>
+                      <dd><input type="text" name="modifierVeloDescription" id="modifierVeloDescription" /></dd>
+                      <dt><label for="modifierVeloDate">Date d'achat</label></dt>
+                      <dd>
+                        <input type="text" name="modifierVeloDate" id="modifierVeloDate" />
+                    </dd>
+                    <dt><label for="modifierVeloRevisionDe">Période de révision</label></dt>
+                      <dd>
+                        <label for="modifierVeloRevisionDe">De</label>
+			<input type="text" name="modifierVeloRevisionDe" id="modifierVeloRevisionDe" />
+			<label for="modifierVeloRevisionA">à</label>
+			<input type="text" name="modifierVeloRevisionA" id="modifierVeloRevisionA" />
+                        <button type="button" id="modifierVelo">Modifier</button>
+                    </dd>
                   </fieldset>
               </div>
               <div id="event" class="block">
@@ -61,7 +100,7 @@
                 <fieldset>
                     <legend>Créer</legend>
                     <dl>
-                      <dt><label for="create-accessoire" >Nom</label></dt>
+                      <dt><label for="create-accessoire">Nom</label></dt>
                       <dd><input type="text" name="create-accessoire" id="accessoireNom" /></dd>
                       <dt><label for="desc-accessoire">Description</label></dt>
                       <dd>
@@ -109,6 +148,8 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-ui-1.10.4.custom.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
 	<script src="js/main.js"></script>
 

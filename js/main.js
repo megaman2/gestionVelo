@@ -1,8 +1,29 @@
 $(document).ready(function(){
 	var block = $('.block'),
-	    accesoire = $('#accessoire');
+	    accesoire = block.filter('#accessoire'),
+            velo = block.filter('#velo');
 	block.hide();
 	block.filter(':first').show();
+	$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
+	if(velo.size() > 0 && velo.is(':visible')) {
+		$('#creerVeloDate').datepicker();
+		$( "#modifierVeloRevisionDe" ).datepicker({
+			defaultDate: "+1w",
+		        changeMonth: true,
+		        numberOfMonths: 1,
+		        onClose: function( selectedDate ) {
+				$( "#modifierVeloRevisionA" ).datepicker( "option", "minDate", selectedDate );
+			}
+		});
+		$( "#modifierVeloRevisionA" ).datepicker({
+			defaultDate: "+1w",
+			changeMonth: true,
+			numberOfMonths: 1,
+			onClose: function( selectedDate ) {
+				$( "#modifierVeloRevisionDe" ).datepicker( "option", "maxDate", selectedDate );
+			}
+		});
+	}
 	$('.buttons-bar a').click(function(e){
 		e.preventDefault();
 		block.hide();
@@ -14,7 +35,13 @@ $(document).ready(function(){
 	});
 });
 
+/**   Velo   **/
+$('#chargerVeloAmodifier').click(function(){ $('#champs-modifs').removeClass('hidden'); });
+$('#modifierVelo').click(function(){ $('#champs-modifs').addClass('hidden'); });
 
+
+
+/**   Accessoire   **/
 $( "#ajouterAccessoire" ).click(function() {
 	var nom = $("#accessoireNom").val();
 	var desc = $("#accessoireDesc").val();
@@ -48,9 +75,9 @@ $( "#modifierAccessoire" ).click(function() {
     var nom = $("#accessoireNomModifier").val();
     var desc = $("#accessoireDescModifier").val();
 	$.getJSON('/velo/php/ControleurAccessoire.php',{"fonction":"modifier","nom":nom,"desc":desc,"id":id}, function(data){});
+	listerAccessoire();  	
 	$("#champsModifier").addClass("hidden");
- 	listerAccessoire();  
-
+ 	
 });
 
 
