@@ -8,16 +8,22 @@
 	    $_REQUEST['fonction']($_REQUEST);
 	}
 	 
-	function cree($data)
+	function creer($data)
 	{
 		$a = new Velo();
-		$res = $a->creer($_GET["nom"],$_GET["desc"]);
+		$res = $a->creer($_GET["type"],$_GET["model"],$_GET["desc"],$_GET["date"]);
 	}
 
-	function lire()
+	function lireTous()
 	{
 		$a = new Velo();
-		print_r($a->lire());
+		print_r($a->lireTous());
+	}
+
+	function lire($data)
+	{
+		$a = new Velo();
+		print_r($a->lire($_GET["id"]));
 	}
 
 	function supprimer($data)
@@ -29,7 +35,7 @@
 	function modifier($data)
 	{
 		$a = new Velo();
-		print_r($a->modifier($_GET["nom"],$_GET["desc"],$_GET["id"]));
+		print_r($a->modifier($_GET["type"],$_GET["model"],$_GET["desc"],$_GET["date"],$_GET["dateReparation"],$_GET["id"],$_GET["revisionD"],$_GET["revisionF"]));
 	}
 
 ?>

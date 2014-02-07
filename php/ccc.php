@@ -8,7 +8,7 @@
 	    $_REQUEST['fonction']($_REQUEST);
 	}
 	 
-	function creer($data)
+	function cree($data)
 	{
 		$a = new Velo();
 		$res = $a->creer($_GET["type"],$_GET["model"],$_GET["desc"],$_GET["date"]);
@@ -35,7 +35,7 @@
 	function modifier($data)
 	{
 		$a = new Velo();
-		print_r($a->modifier($_GET["type"],$_GET["model"],$_GET["desc"],$_GET["date"],$_GET["dateReparation"],$_GET["id"]));
+		print_r($a->modifier($_GET["type"],$_GET["model"],$_GET["desc"],$_GET["date"],$_GET["dateReparation"]);
 	}
 
 ?>

@@ -143,7 +143,13 @@ dd.hidden { display: none; }
 
 input { max-width:100% }
 
-
+table {
+  text-align:center;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
 
 
 /* ==========================================================================

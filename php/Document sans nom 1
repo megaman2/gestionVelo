@@ -1,0 +1,7 @@
+SELECT * 
+FROM  `gv_Velo` v
+INNER JOIN  `gv_Velo_Accessoire` va ON  va.idVelo = v.id
+INNER JOIN  `gv_Accessoire` a ON va.idAccessoire = a.id
+WHERE 1 
+LIMIT 0 , 30
+

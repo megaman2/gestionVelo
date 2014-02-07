@@ -47,7 +47,8 @@
                       <dd>
                         <input type="text" name="creerVeloDate" id="creerVeloDate" />
                         <button type="button" id="ajouterVelo">Ajouter</button>
-                    </dd>
+                      </dd>
+                    </dl>
                   </fieldset>
                   <fieldset>
                     <legend>Supprimer</legend>
@@ -57,7 +58,7 @@
                        <select name="veloAsupprimer" id="veloAsupprimer"></select>
                        <button type="button" id="supprimerVelo">Supprimer</button>
 		      </dd>
-                    </dd>
+                    </dl>
                   </fieldset>
                   <fieldset>
                     <legend>Modifier</legend>
@@ -76,10 +77,10 @@
                       <dt><label for="modifierVeloDescription">Description</label></dt>
                       <dd><input type="text" name="modifierVeloDescription" id="modifierVeloDescription" /></dd>
                       <dt><label for="modifierVeloDate">Date d'achat</label></dt>
-                      <dd>
-                        <input type="text" name="modifierVeloDate" id="modifierVeloDate" />
-                    </dd>
-                    <dt><label for="modifierVeloRevisionDe">Période de révision</label></dt>
+                      <dd><input type="text" name="modifierVeloDate" id="modifierVeloDate" /></dd>
+		      <dt><label for="modifierVeloDateR">Date de revision</label></dt>
+                      <dd><input type="text" name="modifierVeloDateR" id="modifierVeloDateR" /></dd>
+                      <dt><label for="modifierVeloRevisionDe">Période de révision</label></dt>
                       <dd>
                         <label for="modifierVeloRevisionDe">De</label>
 			<input type="text" name="modifierVeloRevisionDe" id="modifierVeloRevisionDe" />
@@ -87,7 +88,23 @@
 			<input type="text" name="modifierVeloRevisionA" id="modifierVeloRevisionA" />
                         <button type="button" id="modifierVelo">Modifier</button>
                     </dd>
-                  </fieldset>
+                  </dl>
+                 </fieldset>
+                 <hr />
+                 <fieldset>
+                  <legend>Lier Velo &amp; Accessoire</legend>
+                  <table>
+                   <thead>
+                    <tr id="accessoire_list">
+                     <th>&nbsp;</th>
+                    </tr>
+                   </thead>
+                   <tbody>
+                    
+                   </tbody>                  
+                  </table>
+                  
+                 </fieldset>
               </div>
               <div id="event" class="block">
                 <h1>&Eacute;vénements</h1>
@@ -100,11 +117,11 @@
                 <fieldset>
                     <legend>Créer</legend>
                     <dl>
-                      <dt><label for="create-accessoire">Nom</label></dt>
-                      <dd><input type="text" name="create-accessoire" id="accessoireNom" /></dd>
-                      <dt><label for="desc-accessoire">Description</label></dt>
+                      <dt><label for="accessoireNom">Nom</label></dt>
+                      <dd><input type="text" name="accessoireNom" id="accessoireNom" /></dd>
+                      <dt><label for="accessoireDesc">Description</label></dt>
                       <dd>
-                        <input type="text" name="add-accessoire" id="accessoireDesc" />
+                        <input type="text" name="accessoireDesc" id="accessoireDesc" />
                         <button type="button" id="ajouterAccessoire">Ajouter</button>
                     </dd>
                 </dl>
@@ -125,21 +142,19 @@
                 <legend>Modifier</legend>
                     <dl>
                       <dt><label for="modify-pieces">Piece</label></dt>
-                        <dd id="mofidier">
-                         <select name="modify-pieces" id="modify-pieces"></select>
-                         <button type="button" id="chargerAccessoire">Charger</button>
-		        </dd>
-			<div id="champsModifier" class="hidden">
-			  <dt><label for="modifier-accessoire" >Nom</label></dt>
-			  <dd><input type="text" name="create-accessoire" id="accessoireNomModifier" /></dd>
-			  <dt><label for="desc-accessoire">Description</label></dt>
-			  <dd>
-                            <input type="text" name="add-accessoire" id="accessoireDescModifier" />
-                            <button type="button" id="modifierAccessoire">Modifier</button>
-			  </dd>
-			</div>
-			
-
+                      <dd id="mofidier">
+                       <select name="modify-pieces" id="modify-pieces"></select>
+                       <button type="button" id="chargerAccessoire">Charger</button>
+		      </dd>
+                    </dl>
+                    <dl id="champsModifier" class="hidden">
+		      <dt><label for="accessoireNomModifier">Nom</label></dt>
+		      <dd><input type="text" name="accessoireNomModifier" id="accessoireNomModifier" /></dd>
+		      <dt><label for="accessoireDescModifier">Description</label></dt>
+		      <dd>
+                       <input type="text" name="accessoireDescModifier" id="accessoireDescModifier" />
+                       <button type="button" id="modifierAccessoire">Modifier</button>
+		      </dd>
                     </dl>
                   </fieldset>
               </div>

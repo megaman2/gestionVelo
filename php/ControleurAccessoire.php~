@@ -33,7 +33,7 @@
 		print_r($a->supprimer($_GET["id"]));
 	}
 	
-	function aaaa($data)
+	function modifier($data)
 	{
 		$a = new Accessoire();
 		print_r($a->modifier($_GET["nom"],$_GET["desc"],$_GET["id"]));

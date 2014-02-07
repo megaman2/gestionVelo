@@ -6,6 +6,7 @@
 		  
         public function __construct()
         {            
+		ini_set('display_errors', 1);
            $this->db = mysql_connect('localhost', 'root', 'p3x3578');
 	   	       mysql_select_db('gestion_velo');
         }

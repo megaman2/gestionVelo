@@ -8,7 +8,7 @@
 	    $_REQUEST['fonction']($_REQUEST);
 	}
 	 
-	function cree($data)
+	function creer($data)
 	{
 		$a = new Accessoire();
 		$res = $a->creer($_GET["nom"],$_GET["desc"]);
