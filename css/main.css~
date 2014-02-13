@@ -82,6 +82,20 @@ textarea {
     resize: vertical;
 }
 
+/* CSS 3 ... what else ? je veux que toutes les modifications "transitions" se passe pendant 0.3 secondes */
+td {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+td { padding: 15px 30px; }
+
+/* Et si par hasard le js est desactivé bon bah juste le td survolé sera coloré */
+td:hover,
+.highlight { color:white; background-color: gray; }
+
 /* ==========================================================================
    Browse Happy prompt
    ========================================================================== */
@@ -143,7 +157,13 @@ dd.hidden { display: none; }
 
 input { max-width:100% }
 
-
+table {
+  text-align:center;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
 
 
 /* ==========================================================================

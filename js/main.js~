@@ -39,7 +39,6 @@ $(document).ready(function(){
 
 /**   Velo   **/
 
-
 $( "#supprimerVelo" ).click(function() {
 	var id = $("#veloAsupprimer").val();
  	 $.getJSON('/velo/php/ControleurVelo.php',{"fonction":"supprimer","id":id}, function(data){
@@ -149,6 +148,31 @@ function listerAccessoireVelo(){
 	});
 } 
 
+$( "#modifierRelationVeloAccessoire" ).click(function validerTableau(){
+        $('#accessoire_list').parentsUntil('table').next().find(':checkbox').each(function(){
+                var idvelo = $(this).attr('data-velo');
+                var idaccessoire = $(this).attr('data-accessoire');
+		//console.log(idvelo+' '+idaccessoire);
+                if($("[data-velo="+idvelo+"][data-accessoire="+idaccessoire+"]").prop('checked')){
+                $.getJSON('/velo/php/ControleurVelo_Accessoire.php',
+                        {
+                                fonction:"ajouter",
+                                idVelo:idvelo,
+                                idAccessoire:idaccessoire
+                        }, function(data){});
+		//console.log(idvelo+' '+idaccessoire);
+                }else{
+                        $.getJSON('/velo/php/ControleurVelo_Accessoire.php',
+                        {
+                                fonction:"supprimer",
+                                idVelo:idvelo,
+                                idAccessoire:idaccessoire
+                        }, function(data){});
+                }
+
+        });
+});
+
 
 function remplireTableau(){
 	$('#accessoire_list').parentsUntil('table').next().find(':checkbox').each(function(){
@@ -160,7 +184,6 @@ function remplireTableau(){
 	 	 idAccessoire:idaccessoire}, 
 	 	function(data){
 			if(data["COUNT(*)"]==1){
-				console.log('ouou');
 				$("[data-velo="+idvelo+"][data-accessoire="+idaccessoire+"]").prop('checked', true);
 			}
 	 	});
@@ -222,6 +245,145 @@ function listerAccessoire(){
 }
 
 
+/**   Tour   **/
 
 
+
+$( "#ajouterTour" ).click(function() {
+	var dateDepart = $("#tourDateDepart").val();
+	var dateArrivee = $("#tourDateArrivee").val();
+	var prix = $("#tourPrix").val();
+	var type = $("#tourType").val();
+	var parcours = $("#tourParcours").val();
+	var maxx = $("#tourMax").val();
+ 	 $.getJSON('/velo/php/ControleurTour.php',{"fonction":"creer",
+						   "dateDepart":dateDepart,
+						   "dateArrivee":dateArrivee,
+						   "prix":prix,
+						   "type":type,
+						   "parcours":parcours,
+						   "max":maxx}, function(data){
+	});
+	$("#tourDateDepart").val("");
+	$("#tourDateArrivee").val("");
+	$("#tourPrix").val("");
+	$("#tourMax").val(7);
+});
+
+
+
+/*
+$( "#supprimerVelo" ).click(function() {
+	var id = $("#veloAsupprimer").val();
+ 	 $.getJSON('/velo/php/ControleurVelo.php',{"fonction":"supprimer","id":id}, function(data){
+	});
+	listerVelo();
+});
+
+
+$( "#chargerVeloAmodifier" ).click(function() {
+    var id = $("#veloAmodifier").val();
+    $.getJSON('/velo/php/ControleurVelo.php',{"fonction":"lire","id":id}, function(data)
+    {
+	$("#modifierVeloType").val(data.type);
+	$("#modifierVeloModel").val(data.model);
+	$("#modifierVeloDescription").val(data.description);
+	$("#modifierVeloDate").val(data.dateAchat);
+	$("#modifierVeloDateR").val(data.dateRevision);
+	$("#modifierVeloRevisionDe").val(data.debutReparation);
+	$("#modifierVeloRevisionA").val(data.finReparation);
+	$("#champs-modifs").removeClass("hidden");
+    });
+});
+
+$('#modifierVelo').click(function(){
+  	var id = $("#veloAmodifier").val();
+   	var type = $("#modifierVeloType").val();
+	var model = $("#modifierVeloModel").val();
+	var desc = $("#modifierVeloDescription").val();
+	var date = $("#modifierVeloDate").val();
+	var dateR = $("#modifierVeloDateR").val();
+	var revisionD = $("#modifierVeloRevisionDe").val();
+	var revisionF = $("#modifierVeloRevisionA").val();
+
+	$.getJSON('/velo/php/ControleurVelo.php',{"fonction":"modifier",
+						  "type":type,
+						  "model":model,
+						  "date":date,
+						  "desc":desc,
+						  "dateReparation":dateR,
+						  "id":id,
+						  "revisionD":revisionD,
+						  "revisionF":revisionF}, function(data){});
+	listerVelo();
+	
+   	$("#modifierVeloType").val("");
+	$("#modifierVeloModel").val("");
+	$("#modifierVeloDescription").val("");
+	$("#modifierVeloDate").val("");
+	$("#modifierVeloDateR").val("");
+	$("#modifierVeloRevisionDe").val("");
+	$("#modifierVeloRevisionA").val("");
+
+	$('#champs-modifs').addClass('hidden'); 
+});
+
+
+function listerVelo(){
+	$.getJSON('/velo/php/ControleurVelo.php',{"fonction":"lireTous"}, function(data){
+		$('#veloAsupprimer').empty();
+		$('#veloAmodifier').empty();
+		$.each(data, function(i, item) {
+			$('<option></option>')
+			.text(item.type).attr('value',item.id)
+			.appendTo($('#veloAsupprimer, #veloAmodifier'));
+		});
+	});
+}
+
+
+function listerAccessoireVelo(){
+	$.getJSON('/velo/php/ControleurAccessoire.php',{fonction:"lireTous"}, function(data){
+		$.each(data, function(i, item) {
+			$('<th data-accessoire-id='+item.id+'></th>')
+			.text(item.nom)
+			.appendTo($('#accessoire_list'));
+		});
+		var indice = $('#accessoire_list').find('th').length-1,
+                    htmlVelo = '';
+		$.getJSON('/velo/php/ControleurVelo.php',{fonction:"lireTous"}, function(data){
+			$.each(data, function(i, item) {
+                                htmlVelo += '<tr><td data-velo-id='+item.id+'>'+item.type + '<br />' + item.model +'</td>';
+				var i;
+                                for (i = 0; i < indice; i++) {
+					var j =  $('#accessoire_list').parentsUntil('table').find('th').eq(i+1).attr('data-accessoire-id');
+					htmlVelo += '<td><input type="checkbox" data-accessoire="'+j+'" data-velo="'+item.id+'" /></td>';
+				}
+				htmlVelo += '</tr>';
+			});
+			$('#accessoire_list').parentsUntil('table').next().append(htmlVelo);
+		remplireTableau();
+		});
+	});
+} 
+
+
+function remplireTableau(){
+	$('#accessoire_list').parentsUntil('table').next().find(':checkbox').each(function(){
+		var idvelo = $(this).attr('data-velo');
+		var idaccessoire = $(this).attr('data-accessoire');
+		$.getJSON('/velo/php/ControleurVelo_Accessoire.php',
+		{fonction:"estValidee",
+		 idVelo:idvelo,
+	 	 idAccessoire:idaccessoire}, 
+	 	function(data){
+			if(data["COUNT(*)"]==1){
+				$("[data-velo="+idvelo+"][data-accessoire="+idaccessoire+"]").prop('checked', true);
+			}
+	 	});
+	});
+}
+	
+
+*/
 

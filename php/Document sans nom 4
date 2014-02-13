@@ -1,0 +1,32 @@
+SELECT
+	gv_Tour.dateDepart,
+	gv_Tour.dateArrivee,
+	gv_Tour.max,
+	gv_Client.nom,
+	gv_Client.prenom,
+	gv_Velo.id,
+	gv_Velo.type,
+	gv_Velo.model,
+	gv_Accessoire.id,
+	gv_Accessoire.nom 
+
+
+FROM
+	gv_Materiel_Loue
+	INNER JOIN
+	gv_Tour ON (gv_Tour.id = gv_Materiel_Loue.gv_Tour_id)
+	INNER JOIN 
+	gv_Reservation ON (gv_Materiel_Loue.gv_Reservation_id = gv_Reservation.id)
+	INNER JOIN
+	gv_Client ON (gv_Client.id = gv_Reservation.gv_Client_id)
+	INNER JOIN
+	gv_Velo ON (gv_Velo.id = gv_Materiel_Loue.gv_Velo_id)
+	LEFT OUTER JOIN
+	gv_Accessoire ON (gv_Accessoire.id = gv_Materiel_Loue.gv_Accessoire_id)
+
+WHERE
+
+	gv_Tour.id = 2
+
+
+

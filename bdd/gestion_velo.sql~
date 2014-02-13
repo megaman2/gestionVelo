@@ -48,7 +48,7 @@ INSERT INTO `gv_Accessoire` (`id`, `nom`, `description`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `gv_Client` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `nom` varchar(45) NOT NULL,
   `prenom` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `gv_Reparation` (
 --
 
 CREATE TABLE IF NOT EXISTS `gv_Reservation` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `prix` float DEFAULT NULL,
   `moyenDePaimemnt` enum('liquide','black','carte bleu') DEFAULT NULL,
   `gv_Reservationcol` varchar(45) DEFAULT NULL,
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `gv_Reservation` (
 --
 
 CREATE TABLE IF NOT EXISTS `gv_Tour` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `dateDepart` datetime NOT NULL,
   `dateArrivee` datetime NOT NULL,
   `prix` float NOT NULL,
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `gv_Tour` (
 --
 
 CREATE TABLE IF NOT EXISTS `gv_Velo` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `type` varchar(45) NOT NULL,
   `model` varchar(45) NOT NULL,
   `description` varchar(255) NOT NULL,

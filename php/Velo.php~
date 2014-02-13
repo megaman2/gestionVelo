@@ -50,7 +50,7 @@
 		  $dateRevisionstring = $reparationDebut->format('Y-m-d H:i:s');
 			
 		  //$requete = "UPDATE `gv_Velo` SET `type`= '$type' ,`description`= '$description' ,`model`= '$model' WHERE `id`=$id";
-		 $requete = "UPDATE `gv_Velo` SET `type`= '$type' ,`description`= '$description' ,`model`= '$model' ,`dateAchat`= '$date->format(\"Y-m-d\")' ,`dateRevision`= '$dateRevision->format(\"Y-m-d\")'  ,`debutReparation`= '$reparationDebut->format(\"Y-m-d\")' ,`finReparation`= '$reparationFin->format(\"Y-m-d\")' WHERE `id`=$id";       
+		 $requete = "UPDATE `gv_Velo` SET `type`= '$type' ,`description`= '$description' ,`model`= '$model' ,`dateAchat`= '$datestring' ,`dateRevision`= '$dateRevisionstring'  ,`debutReparation`= '$reparationDebutstring' ,`finReparation`= '$reparationFinstring' WHERE `id`=$id";       
 		mysql_query($requete) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
 	}   
    }

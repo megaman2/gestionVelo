@@ -1,0 +1,29 @@
+SELECT * FROM 
+			    gv_Velo LEFT OUTER JOIN (gv_Materiel_Loue INNER JOIN gv_Tour ON (gv_Tour.id = gv_Materiel_Loue.gv_Tour_id))
+			    ON (gv_Velo.id = gv_Materiel_Loue.gv_Velo_id)
+			    WHERE ((gv_Velo.id NOT IN (SELECT gv_Materiel_Loue.gv_Velo_id FROM gv_Materiel_Loue INNER JOIN gv_Tour ON (gv_Materiel_Loue.gv_Tour_id = gv_Tour.id) 					WHERE gv_Tour.id = $idTour))
+
+
+
+
+
+SELECT * 
+FROM
+gv_Velo LEFT OUTER JOIN
+(gv_Materiel_Loue INNER JOIN gv_Tour ON (gv_Tour.id = gv_Materiel_Loue.gv_Tour_id))
+ON (gv_Velo.id = gv_Materiel_Loue.gv_Velo_id)
+WHERE 
+gv_Velo.debutReparation 
+
+(gv_Velo.id NOT IN 
+(SELECT gv_Materiel_Loue.gv_Velo_id FROM gv_Materiel_Loue INNER JOIN gv_Tour 
+ON (gv_Materiel_Loue.gv_Tour_id = gv_Tour.id) 				 
+WHERE gv_Tour.id = 1))
+
+
+
+
+
+
+
+

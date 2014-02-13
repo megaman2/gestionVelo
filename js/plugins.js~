@@ -50,16 +50,4 @@ jQuery(function($){
 
 
 
-$('td').hover(function() 
-{ 
-   // Ligne 
-   $(this).parent().css('background', '#xxxxxx'); 
- 
-   // Colonne 
-   $('td:eq(' + $(this).index() + ')').css('background', '#xxxxxx'); 
- 
-}, function() 
-{ 
-   $('tr').css('background', '#yyyyyy'); 
-   $('td').css('background', '#yyyyyy'); 
-}); 
+

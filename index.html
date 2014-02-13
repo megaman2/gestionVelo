@@ -26,7 +26,7 @@
         <nav>
             <ul class="buttons-bar">
               <li><a href="#velo">Velo</a></li>
-              <li><a href="#event">&Eacute;vénements</a></li>
+              <li><a href="#tour">Tour</a></li>
               <li><a href="#accessoire">Accessoires</a></li>
             </ul>
         </nav>
@@ -103,13 +103,63 @@
                     
                    </tbody>                  
                   </table>
-                  
+                  <button type="button" id="modifierRelationVeloAccessoire">Modifier</button>
                  </fieldset>
               </div>
-              <div id="event" class="block">
-                <h1>&Eacute;vénements</h1>
+              <div id="tour" class="block">
+                <h1>Tour</h1>
                   <fieldset>
-                    <legend></legend>
+                    <legend>Créer</legend>
+                    <dl>
+                      <dt><label for="tourDateDepart">date Depart</label></dt>
+                      <dd><input type="text" name="tourDateDepart" id="tourDateDepart" /></dd>
+
+		      <dt><label for="tourDateArrivee">date Arrivee</label></dt>
+                      <dd><input type="text" name="tourDateArrivee" id="tourDateArrivee" /></dd>
+
+
+                      <dt><label for="tourPrix">Prix</label></dt>
+                      <dd><input type="text" name="tourPrix" id="tourPrix" /></dd>
+
+                      <dt><label for="tourType">Type</label></dt>
+                      <dd>
+			   <select name="tourType" id="tourType">
+				  <option >soir</option> 
+				  <option selected>loisir</option>
+				  <option >sportif</option>
+			   </select>
+		      </dd>
+
+                      <dt><label for="tourParcours">Parcours</label></dt>
+                      <dd><select name="tourParcours" id="tourParcours">
+				  <option selected>petit poucet</option> 
+				  <option >essentielle de nice</option>
+				  <option >au fil de eau</option>
+			   </select>
+			</dd>
+
+                      <dt><label for="tourMax">Max</label></dt>
+                      <dd><input type="text" name="tourMax" id="tourMax" value="7" />
+
+                        <button type="button" id="ajouterTour">Ajouter</button>
+                    </dd>
+                </dl>
+            </fieldset>
+            <fieldset>
+                <legend>Supprimer</legend>
+                    <dl>
+                      <dt><label for="delete-tour">Tour</label></dt>
+                      <dd>
+                        <select name="delete-tour" id="delete-tour">
+                            
+                        </select>
+                        <button type="button" id="supprimerTour">Valider</button>
+                    </dd>
+                    </dl>
+            </fieldset>
+            <fieldset>
+                <legend>Modifier</legend>
+                   
                   </fieldset>
               </div>
               <div id="accessoire" class="block">
